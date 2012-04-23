@@ -5,6 +5,11 @@ FOG_CREDENTIALS = { :provider => 'OpenStack',  \
                     :openstack_tenant => 'admin', \
                     :openstack_management_url => 'http://mc1.la-1-9.morphcloud.net:8774/v1.1/', }
 
+def authenticate
+  @connections = FogClient.connect(@user,@password)
+  @connections
+end
+
 Given /^the username is "([^"]*)"$/ do |arg1|
   @user = arg1
 end
@@ -13,8 +18,12 @@ And /^the password is "([^"]*)"$/ do |arg1|
   @password = arg1
 end
 
+And /^the user is authenticated$/ do
+  authenticate
+end
+
 When /^the client authenticates$/ do
-  @connections = FogClient.connect(@user,@password)
+  authenticate
 end
 
 Then /^compute service should be in the catalog$/ do
