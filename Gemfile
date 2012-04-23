@@ -4,4 +4,5 @@ gem 'fog', :git => 'git://github.com/MorphGlobal/fog.git', :branch => 'developme
 ## For Fog Development Purposes
 #  gem 'fog', :path => '../fog'
 
+gem 'rspec'
 gem 'cucumber'

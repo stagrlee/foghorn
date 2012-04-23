@@ -1,10 +1,9 @@
 Feature: Image Service
 
   Background:
-    Given the username is "admin"
-    And the password is "klnm12"
-    And the user is authenticated
+    Given the client is authenticated with user "admin" and password "klnm12"
+    And the client is connected to the image service
 
-  Scenario: listing images
-    When a list of images is requested
-    Then the response should have a list of images
+  Scenario: The image service should return a non-empty list of public images when queried.
+    When the list of public images is retrieved from the image service
+    Then the list of public images should not be empty
