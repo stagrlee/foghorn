@@ -16,7 +16,7 @@ everything has been deployed and configured properly.
 * RubyGems
 * Bundler
 
-### Getting ready to test
+### Getting Ready To Test
 
 Once all the required software has been installed, run the following command:
 
@@ -24,7 +24,12 @@ Once all the required software has been installed, run the following command:
 
 This will install the Fog client, the Cucumber framework and other dependencies.
 
-### Running the tests
+### Configuring the Framework
+
+To configure the framework to point to your specific OpenStack system, edit the env.rb 
+file found in the features/support directory.
+
+### Running the Tests
 
 To run the test suite, run the following command:
 
