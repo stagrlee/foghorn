@@ -15,3 +15,20 @@ module KnowsConnectionParameters
 end
 
 World(KnowsConnectionParameters)
+
+module KnowsIdentityService
+  def identity_service
+    Fog::Identity.new(connection_parameters)
+  end
+end
+
+World(KnowsIdentityService)
+
+module KnowsImageService
+  def image_service
+    Fog::Image.new(connection_parameters)
+  end
+end
+
+World(KnowsImageService)
+

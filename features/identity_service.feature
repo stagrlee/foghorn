@@ -1,7 +1,4 @@
-Feature: Authentication
-
-  Background:
-    Given the client is connected to the identity service
+Feature: Identity Service
 
   Scenario: The identity service should return a non-empty list of users when queried.
     When the list of users is retrieved from the identity service
