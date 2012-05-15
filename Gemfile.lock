@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/MorphGlobal/fog.git
-  revision: 6abc0ed5a607a90db683ee1d76d0dfe7e36984cc
+  revision: 22cf3a22aeb89c686006c4847a3e4ad6140edf3b
   branch: development
   specs:
     fog (1.3.1)
@@ -31,7 +31,7 @@ GEM
       json (>= 1.4.6)
     json (1.6.6)
     mime-types (1.18)
-    multi_json (1.3.2)
+    multi_json (1.3.5)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.3.0)

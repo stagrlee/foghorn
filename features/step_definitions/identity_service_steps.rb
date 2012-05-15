@@ -1,7 +1,7 @@
 #@connections[:volume]   = Fog::Volume.new(options)
 
-And /^the client is connected to the identity service$/  do
-  @identity_service ||= Fog::Identity.new(@options)
+Given /^the client is connected to the identity service$/  do
+  @identity_service ||= Fog::Identity.new(connection_parameters)
 end
 
 When /^the list of users is retrieved from the identity service$/ do

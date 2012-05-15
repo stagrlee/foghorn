@@ -1,5 +1,5 @@
-And /^the client is connected to the image service$/  do
-  @image_service ||= Fog::Image.new(@options)
+Given /^the client is connected to the image service$/  do
+  @image_service ||= Fog::Image.new(connection_parameters)
 end
 
 When /^the list of public images is retrieved from the image service$/ do
