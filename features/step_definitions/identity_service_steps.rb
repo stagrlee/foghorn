@@ -1,7 +1,4 @@
-#@connections[:volume]   = Fog::Volume.new(options)
-
 When /^the list of users is retrieved from the identity service$/ do
-  # @response = @connections[:image].list_public_images
   @list_user_response = identity_service.list_users
 end
 
