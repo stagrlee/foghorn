@@ -53,7 +53,7 @@ Then /^a new server should be started$/ do
     if status == 'ACTIVE'
       break;
     end
-    sleep 2
+    sleep 5
     retries += 1
   end
   compute_service.delete_server(server_id)
