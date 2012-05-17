@@ -39,23 +39,15 @@ When /^the compute service is invoked to start a new server$/ do
       @flavor_id,
       {
           "tenant_id" => @tenant_id,
-      });
+      })
 end
 
 Then /^a new server should be started$/ do
   @instance.nil?.should_not == true
   server_id = @instance.body['server']['id']
-  retries = 0
-  # honestly should boot very quickly. less than 10s should suffice.
-  while retries < 15 do
+  eventually do
     server_details = compute_service.get_server_details(server_id)
-    status = server_details.body['server']['status']
-    if status == 'ACTIVE'
-      break;
-    end
-    sleep 2
-    retries += 1
+    server_details.body['server']['status'].should == 'ACTIVE'
   end
   compute_service.delete_server(server_id)
-  status.should == 'ACTIVE'
 end

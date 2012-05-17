@@ -7,17 +7,11 @@ Given /^a (\d+)GB volume named "([^"]*)" is created$/ do |size, name|
 end
 
 Then /^the volume should become available$/ do
-  retries = 0
-  while retries < 15 do
+  eventually do
     volume = volume_service.volumes.find_by_id(@volume_id)
-    status =  volume.attributes[:status]
-    if status == 'available' || status == 'error'
-      break
-    end
-    retries += 1
-    sleep 2
+    status = volume.attributes[:status]
+    status.should == 'available'
   end
-  status.should == 'available'
 end
 
 When /^the list of volumes should contain the new volume$/ do
