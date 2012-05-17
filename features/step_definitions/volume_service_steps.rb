@@ -8,14 +8,14 @@ end
 
 Then /^the volume should become available$/ do
   retries = 0
-  while retries < 5 do
+  while retries < 15 do
     volume = volume_service.volumes.find_by_id(@volume_id)
     status =  volume.attributes[:status]
     if status == 'available' || status == 'error'
       break
     end
     retries += 1
-    sleep 5
+    sleep 2
   end
   status.should == 'available'
 end

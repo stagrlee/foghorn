@@ -47,13 +47,13 @@ Then /^a new server should be started$/ do
   server_id = @instance.body['server']['id']
   retries = 0
   # honestly should boot very quickly. less than 10s should suffice.
-  while retries < 5 do
+  while retries < 15 do
     server_details = compute_service.get_server_details(server_id)
     status = server_details.body['server']['status']
     if status == 'ACTIVE'
       break;
     end
-    sleep 5
+    sleep 2
     retries += 1
   end
   compute_service.delete_server(server_id)
